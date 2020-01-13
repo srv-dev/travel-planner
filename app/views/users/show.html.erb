@@ -1,0 +1,12 @@
+
+<h2> My Bucket List</h2>
+
+<% @user.destinations.each do |dest| %>
+  <%= tag.div class: 'dest-divs' do %>
+    <%= link_to dest.name, destination_path(dest.id)%>
+    |
+    <%= link_to 'Delete', user_path(dest.id), method: 'delete' %>
+  <% end %>
+<% end %>
+<br> <br>
+<%= link_to 'Explore ->', destinations_path, class: 'explore-link'%>

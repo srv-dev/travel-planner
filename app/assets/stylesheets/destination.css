@@ -1,0 +1,55 @@
+
+.dest-names {
+  display: inline-block;
+  justify-content: center;
+  background-color: rgb(86, 128, 69);
+  padding: 10px;
+  width: 100px;
+  height: 50px;
+}
+.hotels {
+  display :inline-flex;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+}
+.attractions {
+  display :inline-flex;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+}
+.activities {
+  display :inline-flex;
+  justify-content: center;
+  /* align-items: center; */
+  width: 200px;
+  height: 200px;
+  margin-right: 50px;
+  border: 2px solid black;
+}
+.budget {
+  display :inline-flex;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+}
+.add-button {
+  width: 50px;
+  height: 20px;
+  align-content: flex-end;
+}
+.budget_name {
+  font-size: 25px;
+}
+.list-names {
+  list-style: none;
+}
+.plus-link {
+  color: yellow;
+  text-decoration: none;
+  /* font-size: 20px; */
+}

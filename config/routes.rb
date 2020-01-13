@@ -1,3 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get '/login' => 'session#new' # Login form
+  post '/login' => 'session#create' # Form submit, check credentials, create session
+  delete '/login' => 'session#destroy' # logout(Delete session)
+
+  resources :users
+  resources :destinations
+
+  resources :hotels
+  resources :attractions
+  resources :activities
+
+
 end

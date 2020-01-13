@@ -1,0 +1,23 @@
+
+
+<h2> Add experiences to <%= @destination.name %> </h2>
+
+<%= tag.div class: 'hotels' do %>
+  <h4> Hotels </h4>
+  <%=  button_to 'Add', hotel_path(@destination.id), class: 'add-button', :method => :get %>
+  <%=  %>
+<% end %>
+
+<%= tag.div class: 'attractions' do %>
+  <h4> Attractions </h4>
+    <%=  button_to 'Add', attraction_path(@destination.id), class: 'add-button', :method => :get %>
+<% end %>
+
+<%= tag.div class: 'activities' do %>
+  <h4> Activities </h4>
+    <%=  button_to 'Add', activity_path, class: 'add-button', :method => :get %>
+<% end %>
+
+<%= tag.div class: 'budget' do %>
+  <%= content_tag(:p, "Budget", :class => 'budget_name') %>
+<% end %>

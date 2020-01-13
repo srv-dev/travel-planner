@@ -1,0 +1,12 @@
+
+<h3> Here's list of activities in <%= @destination.name %> </h3>
+
+<% @destination.activities.each do |activity| %>
+  <ul class='list-names'>
+    <li>
+      <%= link_to '+', class: 'plus-link' %>
+      <%= activity.name %>
+      <%= activity.price.round %>$
+    </li>
+  </ul>
+<% end %>

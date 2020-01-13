@@ -1,0 +1,9 @@
+
+<h2> More Destinations... </h2>
+
+<% @destinations.each do |destination| %>
+
+  <%= tag.div class: 'dest-names' do %>
+    <%= link_to destination.name, edit_destination_path(destination.id) %>
+  <% end %>
+<% end %>

@@ -1,0 +1,21 @@
+
+<h2> Login </h2>
+
+<% if flash[:error] %>
+  <br>
+  <!-- Prints out error message to the user -->
+  <strong> <%= flash[:error] %> </strong>
+  <br> <br> <br>
+<% end %>
+
+<%= form_tag login_path do %>
+
+  <%= label_tag :email %>
+  <%= email_field_tag :email %>
+  <br>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+  <br>
+  <%= submit_tag 'Login' %>
+
+<% end %>

@@ -1,0 +1,15 @@
+body {
+  text-align: center;
+  background-color: rgba(147, 153, 40, 0.76);
+  font-size: 20px;
+}
+.error {
+  color: red;
+}
+
+.field_with_errors input {
+  border: 3px solid red;
+}
+.field_with_errors label {
+  color: red;
+}

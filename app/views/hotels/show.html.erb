@@ -1,0 +1,12 @@
+
+<h3> Here's list of hotels in <%= @destination.name %> </h3>
+
+<% @destination.hotels.each do |hotel| %>
+  <ul class='list-names'>
+    <li>
+      <%= link_to '+', hotels_path(hotel.id), :method => :post, class: 'plus-link' %>
+      <%= hotel.name %>
+      <%= hotel.price.round %>$
+    </li>
+  </ul>
+<% end %>
