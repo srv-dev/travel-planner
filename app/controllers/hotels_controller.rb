@@ -4,7 +4,7 @@ class HotelsController < ApplicationController
 
   def create
     puts "****** #{params} *******"
-    hotel = Hotel.find params[:id]
+    hotel = Hotel.find params[:format]
     @current_user.hotels << hotel unless @current_user.hotels.include?(hotel)
 
     redirect_to destination_path(hotel.destination.id)

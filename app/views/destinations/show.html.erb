@@ -5,7 +5,10 @@
 <%= tag.div class: 'hotels' do %>
   <h4> Hotels </h4>
   <%=  button_to 'Add', hotel_path(@destination.id), class: 'add-button', :method => :get %>
-  <%=  %>
+  <% @current_user.hotels.each do |hotel| %>
+    <%= hotel.name %>
+  <% end %>
+
 <% end %>
 
 <%= tag.div class: 'attractions' do %>
