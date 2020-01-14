@@ -3,6 +3,10 @@ class AttractionsController < ApplicationController
   end
 
   def create
+    attraction = Attraction.find params[:format]
+    @current_user.attractions << attraction unless @current_user.attractions.include?(attraction)
+
+    redirect_to destination_path(attraction.destination.id)
   end
 
   def index
@@ -19,5 +23,6 @@ class AttractionsController < ApplicationController
   end
 
   def destroy
+    
   end
 end

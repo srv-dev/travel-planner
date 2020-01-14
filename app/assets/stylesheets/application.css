@@ -1,15 +1,38 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+body {
+  text-align: center;
+  /* background-image: url('/assets/bg3.jpeg'); */
+  /* background-size: cover; */
+  /* background: linear-gradient(-70deg, #fa7c30 70%, rgba(0, 0, 0, 0) 30%), white; */
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif !important;
+}
+.icon {
+  width: 50px;
+  height: auto;
+}
+.dest-container {
+}
+.dest-col {
+  border: 2px solid white;
+}
+.page-header {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 40px;
+}
+.card-icon {
+  width: 20px;
+  height: auto;
+  float: right;
+  color: teal;
+}
+.card-img-top {
+  height: 250px;
+}
+/* .card-deck {
+  width: 80%;
+  margin: 0 auto;
+} */

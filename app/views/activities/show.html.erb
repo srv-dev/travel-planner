@@ -4,7 +4,7 @@
 <% @destination.activities.each do |activity| %>
   <ul class='list-names'>
     <li>
-      <%= link_to '+', class: 'plus-link' %>
+      <%= link_to '+', activities_path(activity.id), :method => :post, class: 'plus-link' %>
       <%= activity.name %>
       <%= activity.price.round %>$
     </li>

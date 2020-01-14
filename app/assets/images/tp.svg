@@ -1,0 +1,14 @@
+<svg class="icon" data-v-fde0c5aa="" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+<rect class="logo-background-square" width="300px" height="300px" fill="transparent" data-v-fde0c5aa=""/>
+<defs data-v-fde0c5aa="">
+<linearGradient id="a" data-v-fde0c5aa="" gradientTransform="rotate(25)">
+<stop stop-color="#E90DCA" data-v-fde0c5aa="" offset="0"/>
+<stop stop-color="#1536F1" data-v-fde0c5aa="" offset="1"/>
+</linearGradient>
+</defs>
+<g transform="matrix(2.2 0 0 2.2 40 40)" fill="url(#a)" data-v-fde0c5aa="">
+<path d="M87.443 45.365c-.537-1.955-5.529-2.123-7.537-1.454L57.991 51.2 32.634 41.074l-2.676 2.854 10.852 13.03c-6.995 2.418-19.806 6.884-22.131 7.655-2.001.666 12.936 2.785 16.36 2.217 0 0 26.313-8.582 37.945-12.453l8.972-2.984c2-.666 6.069-3.909 5.487-6.028z"/>
+<path d="m14.533 55.344-2.033 1.877 5.39 6.289 7.812-2.752z"/>
+<path d="M94 6H6a6 6 0 0 0-6 6v76a6 6 0 0 0 6 6h88a6 6 0 0 0 6-6V12a6 6 0 0 0-6-6zm-15 4c2.205 0 4 1.794 4 4s-1.795 4-4 4-4-1.794-4-4 1.795-4 4-4zm-11 0c2.205 0 4 1.794 4 4s-1.795 4-4 4-4-1.794-4-4 1.795-4 4-4zm26 78H6V22h88v66zm-4-70c-2.205 0-4-1.794-4-4s1.795-4 4-4 4 1.794 4 4-1.795 4-4 4z"/>
+</g>
+</svg>

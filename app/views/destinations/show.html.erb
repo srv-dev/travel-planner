@@ -1,26 +1,64 @@
 
-
+<div class='page-header'>
 <h2> Add experiences to <%= @destination.name %> </h2>
-
-<%= tag.div class: 'hotels' do %>
-  <h4> Hotels </h4>
-  <%=  button_to 'Add', hotel_path(@destination.id), class: 'add-button', :method => :get %>
-  <% @current_user.hotels.each do |hotel| %>
-    <%= hotel.name %>
-  <% end %>
-
-<% end %>
-
-<%= tag.div class: 'attractions' do %>
-  <h4> Attractions </h4>
-    <%=  button_to 'Add', attraction_path(@destination.id), class: 'add-button', :method => :get %>
-<% end %>
-
-<%= tag.div class: 'activities' do %>
-  <h4> Activities </h4>
-    <%=  button_to 'Add', activity_path, class: 'add-button', :method => :get %>
-<% end %>
-
-<%= tag.div class: 'budget' do %>
-  <%= content_tag(:p, "Budget", :class => 'budget_name') %>
-<% end %>
+</div>
+<div class="container">
+<div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="/assets/hotel-ph.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Hotels
+        <i class="material-icons card-icon">
+          <%= link_to 'add', hotel_path(@destination.id), :method => :get %>
+        </i>
+      </h5>
+      <ul class="list-group list-group-flush">
+        <% @current_user.hotels.each do |hotel|  %>
+          <% if hotel.destination == @destination %>
+          <li class='list-group-item'>
+            <%= hotel.name %>
+            <%= link_to image_tag('/assets/delete-icon.png', class: 'card-icon'), hotel_path(hotel.id), method: 'delete' %>
+          </li>
+          <% end %> <!-- if-end -->
+        <% end %> <!-- hotel end -->
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="/assets/attr-ph.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Attractions
+        <i class="material-icons card-icon">
+          <%= link_to 'add', attraction_path(@destination.id), :method => :get %>
+        </i>
+      </h5>
+      <ul class="list-group list-group-flush">
+      <% @current_user.attractions.each do |attraction|  %>
+        <% if attraction.destination == @destination %>
+          <li class='list-group-item'>
+            <%= attraction.name %>
+            <%= link_to image_tag('/assets/delete-icon.png', class: 'card-icon'), attarction_path(attraction.id), method: 'delete' %>
+          </li>
+        <% end %> <!-- if-end -->
+      <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="/assets/activity-ph.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Activities</h5>
+      <ul class="list-group list-group-flush">
+        <% @current_user.activities.each do |activity|  %>
+          <% if activity.destination == @destination %>
+            <li class='list-group-item'>
+              <%= activity.name %>
+              <%= link_to image_tag('/assets/delete-icon.png', class: 'card-icon'), activity_path(activity.id), method: 'delete' %>
+            </li>
+          <% end %> <!-- if-end -->
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>

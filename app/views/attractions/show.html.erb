@@ -3,7 +3,7 @@
 <% @destination.attractions.each do |attraction| %>
   <ul class='list-names'>
     <li>
-      <%= link_to '+', class: 'plus-link' %>
+      <%= link_to '+', attractions_path(attraction.id), :method => :post, class: 'plus-link' %>
       <%= attraction.name %>
     </li>
   </ul>

@@ -13,6 +13,16 @@ class DestinationsController < ApplicationController
   def show
     @destination = Destination.find params[:id]
 
+    @hotels_cost = 0
+    @current_user.hotels.each do |hotel|
+      @hotels_cost += hotel.price if hotel.destination == @destination
+    end
+
+    @activities_cost = 0
+    @current_user.activities.each do |activity|
+      @activities_cost += activity.price if activity.destination == @destination
+    end
+    
   end
 
   def edit

@@ -3,7 +3,6 @@ class HotelsController < ApplicationController
   end
 
   def create
-    puts "****** #{params} *******"
     hotel = Hotel.find params[:format]
     @current_user.hotels << hotel unless @current_user.hotels.include?(hotel)
 
@@ -15,6 +14,7 @@ class HotelsController < ApplicationController
 
   def show
     @destination = Destination.find params[:id]
+
   end
 
   def edit
@@ -24,5 +24,10 @@ class HotelsController < ApplicationController
   end
 
   def destroy
+    hotel = Hotel.find params[:id]
+
+    @current_user.hotels.destroy params[:format] unless @current_user.hotels.include?(hotel)
+
+    redirect_to destination_path(hotel.destination.id)
   end
 end
