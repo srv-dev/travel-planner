@@ -1,9 +1,23 @@
 
-<h2> More Destinations... </h2>
+<!-- <h2> More Destinations... </h2> -->
 
-<% @destinations.each do |destination| %>
-
-  <%= tag.div class: 'dest-names' do %>
-    <%= link_to destination.name, edit_destination_path(destination.id) %>
-  <% end %>
-<% end %>
+<div class="container dest-list">
+  <div class="row">
+    <% @destinations.each do |destination| %>
+      <div class="col-4">
+        <div class="card-deck">
+          <div class="card">
+            <%= link_to image_tag(destination.image, class: 'card-img-top'), edit_destination_path(destination.id) %>
+            <div class="card-body">
+              <h5 class="card-title">
+                <%= tag.div class: 'dest-names' do %>
+                  <%= link_to destination.name, edit_destination_path(destination.id) %>
+                <% end %>
+              </h5>
+            </div> <!-- card-body -->
+          </div>
+        </div> <!-- card-deck -->
+      </div>
+    <% end %>
+  </div> <!-- row -->
+</div>

@@ -10,3 +10,23 @@
     </li>
   </ul>
 <% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card card-style">
+        <% @destination.activities.each do |activity| %>
+          <ul class="list-names list-group list-group-flush">
+            <li class="list-group-item">
+              <i class="material-icons card-icon">
+                <%= link_to 'add', hotels_path(hotel.id), :method => :post, class: 'plus-link' %>
+              </i>
+              <%= hotel.name %>
+              <%= hotel.price.round %>$
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

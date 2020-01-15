@@ -1,10 +1,22 @@
+
 <h3> Here's list of attractions in <%= @destination.name %> </h3>
 
-<% @destination.attractions.each do |attraction| %>
-  <ul class='list-names'>
-    <li>
-      <%= link_to '+', attractions_path(attraction.id), :method => :post, class: 'plus-link' %>
-      <%= attraction.name %>
-    </li>
-  </ul>
-<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card card-style">
+        <% @destination.attractions.each do |attraction| %>
+          <ul class="list-names list-group list-group-flush">
+            <li class="list-group-item">
+              <i class="material-icons card-icon">
+                <%= link_to 'add', attractions_path(attraction.id), :method => :post, class: 'plus-link' %>
+              </i>
+              <%= attraction.name %>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

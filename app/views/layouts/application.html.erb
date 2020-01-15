@@ -15,9 +15,15 @@
   <body>
     <header>
       <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-          <img src="/assets/tp.svg" width="40" height="40" class="d-inline-block align-top" alt="">Travel Planner
-        </a>
+        <% if @current_user.present? %>
+          <%= link_to(user_path(@current_user.id), class: "navbar-brand") do %>
+            <img src="/assets/tp-orig.svg" width="40" height="40" class="d-inline-block align-top" alt="">Travel Planner
+          <% end %>
+        <% else %>
+        <%= link_to(login_path, class: "navbar-brand") do %>
+          <img src="/assets/tp-orig.svg" width="40" height="40" class="d-inline-block align-top" alt="">Travel Planner
+        <% end %>
+        <% end %>
         <div>
           <% if @current_user.present? %>
             Welcome, <%= @current_user.name %>

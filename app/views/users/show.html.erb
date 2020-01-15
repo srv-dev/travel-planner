@@ -1,12 +1,28 @@
 
-<h2> My Bucket List</h2>
+<div class="dest-list">
+  <h2> My Bucket List</h2>
+  <%= button_to 'Explore', destinations_path, method: 'get',class: 'btn btn-info'%>
+</div>
 
-<% @user.destinations.each do |dest| %>
-  <%= tag.div class: 'dest-divs' do %>
-    <%= link_to dest.name, destination_path(dest.id)%>
-    |
-    <%= link_to 'Delete', user_path(dest.id), method: 'delete' %>
-  <% end %>
-<% end %>
-<br> <br>
-<%= link_to 'Explore ->', destinations_path, class: 'explore-link'%>
+
+<div class="container dest-list">
+  <div class="row">
+    <% @user.destinations.each do |destination| %>
+      <div class="col-4">
+        <div class="card-deck">
+          <div class="card">
+            <%= link_to image_tag(destination.image, class: 'card-img-top'), destination_path(destination.id) %>
+            <div class="card-body">
+              <h5 class="card-title">
+                <%= tag.div class: 'dest-divs' do %>
+                  <%= link_to destination.name, destination_path(destination.id) %>
+                  <%= link_to image_tag('/assets/delete-icon.png', class: 'card-icon'), user_path(destination.id), method: 'delete' %>
+                <% end %>
+              </h5>
+            </div> <!-- card-body -->
+          </div>
+        </div> <!-- card-deck -->
+      </div>
+    <% end %>
+  </div> <!-- row -->
+</div>

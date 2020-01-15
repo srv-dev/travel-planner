@@ -1,35 +1,33 @@
 
-
-<h2> Create New Account </h2>
+<!-- Create New Account -->
 
 <% if @user.errors.any? %>
-  <p> Please correct following errors: </p>
-  <ul>
-  <% @user.errors.full_messages.each do |e| %>
-    <strong> <li> <%= e %> </li> </strong>
-  <% end %>
-  </ul>
-  <br>
+  <div class="alert alert-danger" role="alert">
+    <ul>
+      <% @user.errors.full_messages.each do |e| %>
+      <strong> <li> <%= e %> </li> </strong>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
 
-<%= form_for @user do |f| %>
+<div class="container">
+	<div class="login-container">
+    <!-- <div id="output"></div> -->
+      <div class="avatar">
+        <img width="150px" class="avatar-img" src="/assets/tp.svg" alt="">
+    </div>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
+    <div class="form-box">
+      <%= form_for @user do |f| %>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <br>
+        <%= f.text_field :name, placeholder: 'Full name' %>
+        <%= f.email_field :email, placeholder: 'email' %>
+        <%= f.password_field :password, class: 'form-control', placeholder: 'password' %>
+        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'password' %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password, class: 'form-control' %>
-  <br>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, class: 'form-control' %>
-  <br>
-
-  <%= f.submit 'Sign Up' %>
-
-<% end %>
+        <%= f.button 'Sign Up', class: 'btn btn-info btn-block login' %>
+      <% end %>
+    </div>
+  </div>
+</div>

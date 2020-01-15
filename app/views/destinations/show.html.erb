@@ -1,5 +1,5 @@
 
-<div class='page-header'>
+<div class='page-header dest-list'>
 <h2> Add experiences to <%= @destination.name %> </h2>
 </div>
 <div class="container">
@@ -9,7 +9,7 @@
     <div class="card-body">
       <h5 class="card-title">Hotels
         <i class="material-icons card-icon">
-          <%= link_to 'add', hotel_path(@destination.id), :method => :get %>
+          <%= link_to 'add', hotel_path(@destination.id), :method => :get, class: 'add-icon' %>
         </i>
       </h5>
       <ul class="list-group list-group-flush">
@@ -37,7 +37,7 @@
         <% if attraction.destination == @destination %>
           <li class='list-group-item'>
             <%= attraction.name %>
-            <%= link_to image_tag('/assets/delete-icon.png', class: 'card-icon'), attarction_path(attraction.id), method: 'delete' %>
+            <%= link_to image_tag('/assets/delete-icon.png', class: 'card-icon'), attraction_path(attraction.id), method: 'delete' %>
           </li>
         <% end %> <!-- if-end -->
       <% end %>
@@ -47,7 +47,11 @@
   <div class="card">
     <img class="card-img-top" src="/assets/activity-ph.jpg" alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">Activities</h5>
+      <h5 class="card-title">Activities
+        <i class="material-icons card-icon">
+          <%= link_to 'add', activity_path(@destination.id), :method => :get %>
+        </i>
+      </h5>
       <ul class="list-group list-group-flush">
         <% @current_user.activities.each do |activity|  %>
           <% if activity.destination == @destination %>
