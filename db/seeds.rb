@@ -18,8 +18,8 @@ puts "Created #{User.count} users."
 Destination.destroy_all
 
 d1 = Destination.create! name:'Mauritius', image:'/assets/mauritius.jpg'
-d2 = Destination.create! name:'Paris', image:'paris.jpg'
-d3 = Destination.create! name:'Spain', image:'spain.jpg'
+d2 = Destination.create! name:'Paris', image:'/assets/paris.jpg'
+d3 = Destination.create! name:'Spain', image:'/assets/spain.jpg'
 
 puts "Created #{Destination.count} destinations."
 

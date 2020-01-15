@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
 @import "session.css";
+@import "destinations.css";
 
 body {
   text-align: center;
   background-image: url('/assets/leaves.png');
-  /* background-image: url('/assets/bg3.jpeg'); */
-  /* background-size: cover; */
   /* background: linear-gradient(-70deg, #fa7c30 70%, rgba(0, 0, 0, 0) 30%), white; */
   font-size: 20px;
   font-family: 'Poppins', sans-serif !important;
@@ -34,16 +33,21 @@ body {
 .card-img-top {
   height: 250px;
 }
-/* .card-deck {
-  width: 80%;
-  margin: 0 auto;
-} */
 .dest-list {
   margin: 30px auto;
+}
+.dest-margin {
+  margin-bottom: 120px;
 }
 .add-icon {
   text-decoration: none;
 }
 .card-style {
   width: 25rem;
+}
+.top-nav {
+  color: blueviolet;
+}
+.bg-color {
+background-image: linear-gradient(to left, #37ecba 0%, #72afd3 100%);
 }

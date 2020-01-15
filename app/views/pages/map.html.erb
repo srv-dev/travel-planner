@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <title>Simple Markers</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+      const dest = <%=  @destinations.to_json.html_safe %>;
+      function initMap() {
+        // var myLatLng = {lat: -25.363, lng: 131.044};
+
+        // Create a bounding box object
+        var bounds = new google.maps.LatLngBounds();
+        var map = new google.maps.Map(document.getElementById('map'), {
+          // zoom: 4,
+          // center: {lat: destinations[0].latitude, lng: destinations[0].longitude}
+        });
+
+      for(let i=0; i < dest.length; i++) {
+
+        const des = dest[i];
+        var marker = new google.maps.Marker({
+          position: {lat: des.latitude, lng: des.longitude},
+          map: map,
+          title: des.name
+        });
+        bounds.extend(marker.position);
+
+      } // for
+
+      map.fitBounds(bounds); // fit the
+
+    }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQ4iMvwU9PRyXFgoVkIY2TpYHqzKmntZc&callback=initMap">
+    </script>
+    <!-- <script type="text/javascript"
+        src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false&key=AIzaSyCQ4iMvwU9PRyXFgoVkIY2TpYHqzKmntZc&callback=initMap">
+    </script> -->
+
+  </body>
+</html>

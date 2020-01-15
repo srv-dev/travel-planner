@@ -23,6 +23,10 @@ class AttractionsController < ApplicationController
   end
 
   def destroy
-    
+    attraction = Attraction.find params[:id]
+
+    attraction.users.destroy @current_user
+
+    redirect_to destination_path(attraction.destination.id)
   end
 end

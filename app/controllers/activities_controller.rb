@@ -24,5 +24,10 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
+    activity = Activity.find params[:id]
+
+    activity.users.destroy @current_user
+
+    redirect_to destination_path(activity.destination.id)
   end
 end

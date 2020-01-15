@@ -26,7 +26,7 @@ class HotelsController < ApplicationController
   def destroy
     hotel = Hotel.find params[:id]
 
-    @current_user.hotels.destroy params[:format] unless @current_user.hotels.include?(hotel)
+    hotel.users.destroy @current_user
 
     redirect_to destination_path(hotel.destination.id)
   end

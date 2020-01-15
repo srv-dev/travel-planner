@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'pages/map'
   root to: 'session#new'
   get '/login' => 'session#new' # Login form
   post '/login' => 'session#create' # Form submit, check credentials, create session

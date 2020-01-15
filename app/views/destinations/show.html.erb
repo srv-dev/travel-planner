@@ -1,7 +1,15 @@
 
-<div class='page-header dest-list'>
-<h2> Add experiences to <%= @destination.name %> </h2>
+<div class='page-header dest-list dest-margin'>
+  <h2> Add experiences to <%= @destination.name %> </h2>
+  <div class="budget-div">
+    <img src="/assets/price-tag2.png" alt="Price tag" class="price-img">
+    <div class="budget">
+      <p> Trip cost </p>
+      $ <%= (@hotels_cost + @activities_cost).round %>
+    </div>
+  </div>
 </div>
+
 <div class="container">
 <div class="card-deck">
   <div class="card">

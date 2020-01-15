@@ -14,7 +14,7 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-light bg-light">
+      <nav class="navbar navbar-light bg-color">
         <% if @current_user.present? %>
           <%= link_to(user_path(@current_user.id), class: "navbar-brand") do %>
             <img src="/assets/tp-orig.svg" width="40" height="40" class="d-inline-block align-top" alt="">Travel Planner
