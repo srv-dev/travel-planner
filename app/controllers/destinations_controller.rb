@@ -7,14 +7,23 @@ class DestinationsController < ApplicationController
     dest = params[:dest].split(', ')
     @dest = dest.first + ',' + dest.last
 
+    if Destination.where(name: @dest).count == 1
+      redirect_to user_path(@current_user.id)
+      return 
+    end
+
     @img_url_ph = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&key=AIzaSyCuH_vm3pwVq6CoiDR1ZPM67DucLJh8hWg&photoreference="
 
     dest_obj = create_destination
 
     create_hotels dest_obj
     create_attractions dest_obj
+    create_activities dest_obj
 
-    # redirect_to
+
+    @current_user.destinations  << dest_obj unless @current_user.destinations.include?(dest_obj)
+
+    redirect_to user_path(@current_user.id)
   end
 
   def index
@@ -34,8 +43,12 @@ class DestinationsController < ApplicationController
       @activities_cost += activity.price if activity.destination == @destination
     end
 
+    @attractions_cost = 0
+    @current_user.attractions.each do |attraction|
+      @attractions_cost += attraction.price if attraction.destination == @destination
+    end
 
-    # Code to pass destinations array to Map
+    # Code to pass hotel markers to Map
     @hotel_markers = []
     @current_user.hotels.each do |hotel|
       if hotel.destination == @destination && hotel.latitude && hotel.longitude
@@ -43,11 +56,11 @@ class DestinationsController < ApplicationController
       end
     end
 
-    # Code to pass destinations array to Map
+    # Code to pass attractions markers to Map
     @attr_markers = []
     @current_user.attractions.each do |attraction|
       if attraction.destination == @destination && attraction.latitude && attraction.longitude
-        @attr_markers << {"title" => attraction.name, "lat" => attraction.latitude, "lng" => attraction.longitude}
+        @attr_markers << {"title" => attraction.name, "lat" => attraction.latitude, "lng" => attraction.longitude, "image" =>attraction.image }
       end
     end
 
@@ -72,6 +85,7 @@ class DestinationsController < ApplicationController
   def create_destination
 
     dest_info_url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?inputtype=textquery&fields=formatted_address,photos/photo_reference,name,geometry/location&key=AIzaSyCuH_vm3pwVq6CoiDR1ZPM67DucLJh8hWg&input="
+
 
     response = HTTParty.get(dest_info_url+@dest)
     hash = JSON.parse response.body
@@ -122,10 +136,31 @@ class DestinationsController < ApplicationController
       address = result["formatted_address"]
       latitude = result["geometry"]["location"]["lat"]
       longitude = result["geometry"]["location"]["lng"]
+      price = rand(60..200)
 
-      attraction_obj = Attraction.create! name: name, image: attraction_img_url, address: address, latitude: latitude, longitude: longitude
+      attraction_obj = Attraction.create! name: name, image: attraction_img_url, address: address, latitude: latitude, longitude: longitude, price: price
 
       dest_obj.attractions << attraction_obj
+    end
+  end
+
+  def create_activities dest_obj
+
+    activities = [
+      {name: 'Paragliding', image: '/assets/paragliding.jpeg', price: 100},
+      {name: 'Parasailing', image: '/assets/parasailing.jpeg', price: 90},
+      {name: 'Scuba diving', image: '/assets/scuba-diving.jpeg', price: 200},
+      {name: 'River rafting', image: '/assets/river-rafting.jpeg', price: 120},
+      {name: 'Sky diving', image: '/assets/skydiving.jpeg', price: 500},
+      {name: 'Quad bike', image: '/assets/quad-bike.jpeg', price: 110}
+    ]
+
+    activities.each do |activity|
+
+      activity_obj = Activity.create! name: activity[:name], image: activity[:image], price: activity[:price]
+
+      dest_obj.activities << activity_obj
+
     end
   end
 

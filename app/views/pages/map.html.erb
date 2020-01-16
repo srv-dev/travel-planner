@@ -25,7 +25,6 @@
 
       const markers = <%= raw @markers %>;
       function initMap() {
-        // var myLatLng = {lat: -25.363, lng: 131.044};
 
         // Create a bounding box object
         var bounds = new google.maps.LatLngBounds();
@@ -33,16 +32,19 @@
           // zoom: 4,
           // center: {lat: destinations[0].latitude, lng: destinations[0].longitude}
         });
-        var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
 
       for(let i=0; i < markers.length; i++) {
+        var image = '/assets/marker-1.png';
 
         const marker = markers[i];
+        // if(marker.image){
+        //   image = marker.image;
+        // }
         if( marker.lat && marker.lng) {
           var marker_icon = new google.maps.Marker({
             position: {lat:marker.lat, lng:marker.lng},
             map: map,
-            // icon: image,
+            icon: image,
             title: marker.title
           });
           bounds.extend(marker_icon.position);
@@ -56,9 +58,5 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQ4iMvwU9PRyXFgoVkIY2TpYHqzKmntZc&callback=initMap">
     </script>
-    <!-- <script type="text/javascript"
-        src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false&key=AIzaSyCQ4iMvwU9PRyXFgoVkIY2TpYHqzKmntZc&callback=initMap">
-    </script> -->
-
   </body>
 </html>

@@ -5,7 +5,7 @@
     <img src="/assets/price-tag2.png" alt="Price tag" class="price-img">
     <div class="budget">
       <p> Trip cost </p>
-      $ <%= (@hotels_cost + @activities_cost).round %>
+      $ <%= (@hotels_cost + @activities_cost + @attractions_cost).round %>
     </div>
   </div>
 </div>
@@ -15,10 +15,11 @@
   <div class="card">
     <img class="card-img-top" src="/assets/hotel-ph.jpg" alt="Card image cap">
     <div class="card-body">
+      <i class="material-icons card-icon">
+        <%= link_to 'add', hotel_path(@destination.id), :method => :get, class: 'add-icon' %>
+      </i>
       <h5 class="card-title">Hotels
-        <i class="material-icons card-icon">
-          <%= link_to 'add', hotel_path(@destination.id), :method => :get, class: 'add-icon' %>
-        </i>
+
         <i class="material-icons card-icon">
           <%= link_to 'map', { :controller => 'pages', :action => 'map', :markers => @hotel_markers.to_json.html_safe } %>
         </i>

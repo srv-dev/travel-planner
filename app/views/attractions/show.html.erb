@@ -6,19 +6,23 @@
 
 <div class="container">
   <div class="row">
-    <div class="col">
-      <div class="card card-style">
-        <% @destination.attractions.each do |attraction| %>
-          <ul class="list-names list-group list-group-flush">
-            <li class="list-group-item">
+    <% @destination.attractions.each do |attraction| %>
+    <div class="col-4">
+      <div class="card-deck">
+        <div class="card">
+          <%= link_to image_tag(attraction.image, class: 'card-img-top'), destination_path(@destination.id) %>
+          <div class="card-body">
+            <h5 class="card-title">
               <i class="material-icons card-icon">
-                <%= link_to 'add', attractions_path(attraction.id), :method => :post, class: 'plus-link' %>
+              <%= link_to 'add', attractions_path(attraction.id), :method => :post, class: 'plus-link' %>
               </i>
               <%= attraction.name %>
-            </li>
-          </ul>
-        <% end %>
+              <strong> $ <%= attraction.price.round %> </strong>
+            </h5>
+          </div>
+        </div>
       </div>
     </div>
+    <% end %>
   </div>
 </div>
