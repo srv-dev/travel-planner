@@ -1,9 +1,11 @@
 
 <div class="dest-list">
   <h2> My Bucket List</h2>
+
+
+  <%= link_to 'Map', { :controller => 'pages', :action => 'map', :markers => @marker_arr.to_json.html_safe } %>
   <%= button_to 'Explore', destinations_path, method: 'get',class: 'btn btn-info'%>
 </div>
-
 
 <div class="container dest-list">
   <div class="row">

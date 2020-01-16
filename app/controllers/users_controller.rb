@@ -24,6 +24,14 @@ class UsersController < ApplicationController
   def show
     @user = User.find params[:id]
 
+    # Code to pass destinations array to Map
+    @marker_arr = []
+    @user.destinations.each do |destination|
+      if destination.latitude && destination.longitude
+        @marker_arr << {"title" => destination.name, "lat" => destination.latitude, "lng" => destination.longitude}
+      end
+    end
+
   end
 
   def destroy

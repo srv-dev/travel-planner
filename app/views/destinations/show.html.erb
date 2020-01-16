@@ -19,6 +19,9 @@
         <i class="material-icons card-icon">
           <%= link_to 'add', hotel_path(@destination.id), :method => :get, class: 'add-icon' %>
         </i>
+        <i class="material-icons card-icon">
+          <%= link_to 'map', { :controller => 'pages', :action => 'map', :markers => @hotel_markers.to_json.html_safe } %>
+        </i>
       </h5>
       <ul class="list-group list-group-flush">
         <% @current_user.hotels.each do |hotel|  %>
@@ -38,6 +41,9 @@
       <h5 class="card-title">Attractions
         <i class="material-icons card-icon">
           <%= link_to 'add', attraction_path(@destination.id), :method => :get %>
+        </i>
+        <i class="material-icons card-icon">
+          <%= link_to 'map', { :controller => 'pages', :action => 'map', :markers => @attr_markers.to_json.html_safe } %>
         </i>
       </h5>
       <ul class="list-group list-group-flush">

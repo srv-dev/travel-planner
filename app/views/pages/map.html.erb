@@ -23,7 +23,7 @@
     <div id="map"></div>
     <script>
 
-      const dest = <%=  @destinations.to_json.html_safe %>;
+      const markers = <%= raw @markers %>;
       function initMap() {
         // var myLatLng = {lat: -25.363, lng: 131.044};
 
@@ -33,20 +33,23 @@
           // zoom: 4,
           // center: {lat: destinations[0].latitude, lng: destinations[0].longitude}
         });
+        var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
 
-      for(let i=0; i < dest.length; i++) {
+      for(let i=0; i < markers.length; i++) {
 
-        const des = dest[i];
-        var marker = new google.maps.Marker({
-          position: {lat: des.latitude, lng: des.longitude},
-          map: map,
-          title: des.name
-        });
-        bounds.extend(marker.position);
-
+        const marker = markers[i];
+        if( marker.lat && marker.lng) {
+          var marker_icon = new google.maps.Marker({
+            position: {lat:marker.lat, lng:marker.lng},
+            map: map,
+            // icon: image,
+            title: marker.title
+          });
+          bounds.extend(marker_icon.position);
+        } // if
       } // for
 
-      map.fitBounds(bounds); // fit the
+      map.fitBounds(bounds);
 
     }
     </script>

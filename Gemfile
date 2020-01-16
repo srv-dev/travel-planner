@@ -57,3 +57,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rails_12factor', group: :production
 
 gem "geocoder", "~> 1.6"
+
+gem "httparty", "~> 0.17.3"
