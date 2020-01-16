@@ -29,17 +29,13 @@
         // Create a bounding box object
         var bounds = new google.maps.LatLngBounds();
         var map = new google.maps.Map(document.getElementById('map'), {
-          // zoom: 4,
-          // center: {lat: destinations[0].latitude, lng: destinations[0].longitude}
         });
 
       for(let i=0; i < markers.length; i++) {
         var image = '/assets/marker-1.png';
 
         const marker = markers[i];
-        // if(marker.image){
-        //   image = marker.image;
-        // }
+
         if( marker.lat && marker.lng) {
           var marker_icon = new google.maps.Marker({
             position: {lat:marker.lat, lng:marker.lng},
@@ -48,8 +44,8 @@
             title: marker.title
           });
           bounds.extend(marker_icon.position);
-        } // if
-      } // for
+        } // if end
+      } // for end
 
       map.fitBounds(bounds);
 

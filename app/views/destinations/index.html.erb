@@ -34,7 +34,7 @@
       <div id="map-example-container"></div>
 
       <%= form_tag destinations_path, method: :post do %>
-         <%= text_field_tag :dest,nil,type:"search", id:"input-map", class:"form-control", placeholder:"Where are we going?" %>
+         <%= text_field_tag :dest, nil, type:"search", id:"input-map", class:"form-control", placeholder:"Where are we going?" %> <br>
          <%= submit_tag "Let's go!"%>
       <% end %>
     </div>

@@ -1,12 +1,11 @@
 class DestinationsController < ApplicationController
 
-  def new
-  end
-
   def create
+
     dest = params[:dest].split(', ')
     @dest = dest.first + ',' + dest.last
 
+    # handling duplicate destinations case
     if Destination.where(name: @dest).count == 1
       redirect_to user_path(@current_user.id)
       return
@@ -32,6 +31,7 @@ class DestinationsController < ApplicationController
   def show
     @destination = Destination.find params[:id]
 
+    # Calculating prices for hotels, activities, attractions
     @hotels_cost = 0
     @current_user.hotels.each do |hotel|
       @hotels_cost += hotel.price if hotel.destination == @destination
