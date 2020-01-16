@@ -6,7 +6,8 @@ This project is Travel planner application where user can create a bucket list o
 
 **Steps**
 
-1. 
+1. Signup by providing name, email address and password.
+2. User will be created and navigate you to your homepage, Bucket list
 
 **Technologies**
 
