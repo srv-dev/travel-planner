@@ -1,6 +1,5 @@
 class HotelsController < ApplicationController
-  def new
-  end
+
 
   def create
     hotel = Hotel.find params[:format]
@@ -14,7 +13,6 @@ class HotelsController < ApplicationController
 
   def show
     @destination = Destination.find params[:id]
-
   end
 
   def edit

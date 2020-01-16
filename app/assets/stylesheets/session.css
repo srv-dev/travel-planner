@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Alata&display=swap');
 
 .error {
   color: red;
@@ -40,8 +39,6 @@
 #output.alert-danger{
     background: rgb(228, 105, 105);
 }
-
-
 .login-container::before,.login-container::after{
     content: "";
     position: absolute;
@@ -81,9 +78,7 @@
     border: 1px solid #ccc;;
     background: #fafafa;
     transition:0.2s ease-in-out;
-
 }
-
 .form-box input:focus{
     outline: 0;
     background: #eee;

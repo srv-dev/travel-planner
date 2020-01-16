@@ -1,16 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 
-/* .add-button {
-  width: 50px;
-  height: 20px;
-  align-content: flex-end;
-} */
 .list-names {
   list-style: none;
 }
 .plus-link {
   text-decoration: none;
-  /* font-size: 20px; */
 }
 .dest-container {
   border: 2px solid black;
@@ -30,7 +23,6 @@
   transform: rotate(-35deg);
   color: rgb(244, 237, 247);
   font-size: 16pt;
-  /* font-family: 'Source Sans Pro', sans-serif; */
 }
 .price-img {
   width: 200px;

@@ -6,15 +6,12 @@
 body {
   text-align: center;
   background-image: url('/assets/leaves.png');
-  /* background: linear-gradient(-70deg, #fa7c30 70%, rgba(0, 0, 0, 0) 30%), white; */
   font-size: 20px;
   font-family: 'Poppins', sans-serif !important;
 }
 .icon {
   width: 50px;
   height: auto;
-}
-.dest-container {
 }
 .dest-col {
   border: 2px solid white;
@@ -34,9 +31,10 @@ body {
   height: 250px;
 }
 .dest-list {
-  margin: 30px auto;
+  margin: 30px !important;
 }
 .dest-margin {
+  margin-top: 30px;
   margin-bottom: 120px;
 }
 .add-icon {

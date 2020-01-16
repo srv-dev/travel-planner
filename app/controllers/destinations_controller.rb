@@ -9,7 +9,7 @@ class DestinationsController < ApplicationController
 
     if Destination.where(name: @dest).count == 1
       redirect_to user_path(@current_user.id)
-      return 
+      return
     end
 
     @img_url_ph = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&key=AIzaSyCuH_vm3pwVq6CoiDR1ZPM67DucLJh8hWg&photoreference="
@@ -19,7 +19,6 @@ class DestinationsController < ApplicationController
     create_hotels dest_obj
     create_attractions dest_obj
     create_activities dest_obj
-
 
     @current_user.destinations  << dest_obj unless @current_user.destinations.include?(dest_obj)
 
@@ -63,29 +62,19 @@ class DestinationsController < ApplicationController
         @attr_markers << {"title" => attraction.name, "lat" => attraction.latitude, "lng" => attraction.longitude, "image" =>attraction.image }
       end
     end
-
-
   end
 
   def edit
     destination = Destination.find params[:id]
-    # user = User.find_by params[:id]
 
     @current_user.destinations  << destination unless @current_user.destinations.include?(destination)
 
     redirect_to user_path(@current_user.id)
   end
 
-  def update
-  end
-
-  def destroy
-  end
-
   def create_destination
 
     dest_info_url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?inputtype=textquery&fields=formatted_address,photos/photo_reference,name,geometry/location&key=AIzaSyCuH_vm3pwVq6CoiDR1ZPM67DucLJh8hWg&input="
-
 
     response = HTTParty.get(dest_info_url+@dest)
     hash = JSON.parse response.body

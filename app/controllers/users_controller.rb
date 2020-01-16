@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :check_if_logged_in, only: [:edit, :update]
-  # before_action :check_if_admin, only: [:index]
+
   def new
     @user = User.new
   end
@@ -31,11 +31,10 @@ class UsersController < ApplicationController
         @marker_arr << {"title" => destination.name, "lat" => destination.latitude, "lng" => destination.longitude}
       end
     end
-
   end
 
   def destroy
-    puts "*************** #{params[:id]}"
+
     destination = Destination.find params[:id]
     destination.users.destroy @current_user.id
 

@@ -1,11 +1,9 @@
 
 <div class="dest-list row">
-  <h2 class="col-2"> My Bucket List</h2>
-  <div class="col-1 row">
+  <h2> My Bucket List</h2>
     <i class="material-icons card-icon">
       <%= link_to 'map', { :controller => 'pages', :action => 'map', :markers => @marker_arr.to_json.html_safe } %>
     </i>
-  </div>
 </div>
 
 <div class="container dest-list">

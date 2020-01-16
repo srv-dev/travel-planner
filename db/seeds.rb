@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all
+# User.destroy_all
 #
 # u1 = User.create! name:'Sree', email: 'sree@tp.co', password: 'chicken'
 # u2 = User.create! name:'Sam', email: 'sam@tp.co', password: 'chicken'
@@ -15,7 +15,7 @@ User.destroy_all
 # puts "Created #{User.count} users."
 #
 #
-Destination.destroy_all
+# Destination.destroy_all
 #
 # d1 = Destination.create! name:'Mauritius', image:'/assets/mauritius.jpg'
 # d2 = Destination.create! name:'Paris', image:'/assets/paris.jpg'
@@ -31,7 +31,7 @@ Destination.destroy_all
 #
 # puts "User #{u1.name} wants to go to #{u1.destinations.pluck(:name).join(', ')}"
 #
-Attraction.destroy_all
+# Attraction.destroy_all
 #
 # attr1 = Attraction.create! name:'Port Louis'
 # attr2 = Attraction.create! name:'Eiffel Tower'
@@ -41,7 +41,7 @@ Attraction.destroy_all
 #
 # puts " #{Attraction.count} attractions created!!"
 #
-Hotel.destroy_all
+# Hotel.destroy_all
 #
 # h1 = Hotel.create! name:'Novotel', price: 200
 # h2 = Hotel.create! name:'Radisson', price: 200
@@ -51,7 +51,7 @@ Hotel.destroy_all
 #
 # puts "#{Hotel.count} hotels created!!"
 #
-Activity.destroy_all
+# Activity.destroy_all
 #
 # act1 = Activity.create! name: 'Scuba diving', price: 150
 # act2 = Activity.create! name: 'La Ballon de Paris', price: 100
