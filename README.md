@@ -1,24 +1,20 @@
-# README
+**Travel Planner site**
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Description**
 
-Things you may want to cover:
+This project is Travel planner application where user can create a bucket list or wish list and plan to travel destinations around the world.
 
-* Ruby version
+**Steps**
 
-* System dependencies
+1. 
 
-* Configuration
+**Technologies**
 
-* Database creation
+HTML, CSS, JavaScript, Ruby on Rails
 
-* Database initialization
 
-* How to run the test suite
+**Main features**
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ - Players Icons selection
+ - Players win counters
+ - Scoreboards (LocalStorage)
