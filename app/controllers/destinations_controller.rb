@@ -11,7 +11,7 @@ class DestinationsController < ApplicationController
       return
     end
 
-    @img_url_ph = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&key=AIzaSyCuH_vm3pwVq6CoiDR1ZPM67DucLJh8hWg&photoreference="
+    @img_url_ph = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&key=&photoreference="
 
     dest_obj = create_destination
 
@@ -74,7 +74,7 @@ class DestinationsController < ApplicationController
 
   def create_destination
 
-    dest_info_url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?inputtype=textquery&fields=formatted_address,photos/photo_reference,name,geometry/location&key=AIzaSyCuH_vm3pwVq6CoiDR1ZPM67DucLJh8hWg&input="
+    dest_info_url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?inputtype=textquery&fields=formatted_address,photos/photo_reference,name,geometry/location&key=XXX&input="
 
     response = HTTParty.get(dest_info_url+@dest)
     hash = JSON.parse response.body
@@ -91,7 +91,7 @@ class DestinationsController < ApplicationController
 
   def create_hotels dest_obj
 
-    hotel_info_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyCuH_vm3pwVq6CoiDR1ZPM67DucLJh8hWg&query=hotels%20in%20"
+    hotel_info_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?key=XXX&query=hotels%20in%20"
 
     response = HTTParty.get(hotel_info_url+@dest)
     hash = JSON.parse response.body
@@ -113,7 +113,7 @@ class DestinationsController < ApplicationController
 
   def create_attractions dest_obj
 
-    attraction_info_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyCuH_vm3pwVq6CoiDR1ZPM67DucLJh8hWg&query=places%20of%20interest%20in%20"
+    attraction_info_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?key=&query=places%20of%20interest%20in%20"
 
     response = HTTParty.get(attraction_info_url+@dest)
     hash = JSON.parse response.body
