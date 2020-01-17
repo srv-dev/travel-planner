@@ -15,7 +15,3 @@ HTML, CSS, JavaScript, Ruby on Rails
 
 
 **Main features**
-
- - Players Icons selection
- - Players win counters
- - Scoreboards (LocalStorage)
